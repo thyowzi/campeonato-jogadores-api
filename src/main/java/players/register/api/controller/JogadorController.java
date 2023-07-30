@@ -5,13 +5,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import players.register.api.jogador.DadosCadastroJogador;
+
 @RestController
 @RequestMapping("jogadores")
 public class JogadorController {
 
-	@PostMapping		  //RequestBody é o corpo da requisição, faz com que o 'String' pegue do corpo da requisição
-	public void cadastrar(@RequestBody String json) {
-		System.out.println(json);
+	@PostMapping		  
+	public void cadastrar(@RequestBody DadosCadastroJogador dados) {
+		System.out.println(dados);
 	}
 	
 }
