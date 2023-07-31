@@ -25,12 +25,22 @@ public class Jogador {
 	private String nome;
 	private String clube;
 	private String camisa;
-	String nacionalidade;
+	private String nacionalidade;
 	
 	@Enumerated(EnumType.STRING)
-	Posicao posica;
-	Double altura;
-	Double valorDeMercado;
+	private Posicao posicao;
+	private Double altura;
+	private Double valorDeMercado;
+	
+	public Jogador(DadosCadastroJogador dados) {
+		this.nome = dados.nome();
+		this.clube = dados.clube();
+		this.camisa = dados.camisa();
+		this.nacionalidade = dados.nacionalidade();
+		this.posicao = dados.posicao();
+		this.altura = dados.altura();
+		this.valorDeMercado = dados.valorDeMercado();
+	}
 	
 }
 
