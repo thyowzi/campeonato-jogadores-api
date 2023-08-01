@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import players.register.api.jogador.DadosCadastroJogador;
 import players.register.api.jogador.Jogador;
 import players.register.api.jogador.JogadorRepository;
@@ -19,8 +20,8 @@ public class JogadorController {
 	private JogadorRepository jogadorRepository;
 	
 	@PostMapping	
-	@Transactional 
-	public void cadastrar(@RequestBody DadosCadastroJogador dados) {
+	@Transactional 						
+	public void cadastrar(@RequestBody @Valid DadosCadastroJogador dados) {
 		jogadorRepository.save(new Jogador(dados));
 	}
 	
