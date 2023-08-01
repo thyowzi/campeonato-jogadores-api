@@ -1,6 +1,7 @@
 package players.register.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,8 @@ public class JogadorController {
 	@Autowired
 	private JogadorRepository jogadorRepository;
 	
-	@PostMapping		  
+	@PostMapping	
+	@Transactional 
 	public void cadastrar(@RequestBody DadosCadastroJogador dados) {
 		jogadorRepository.save(new Jogador(dados));
 	}

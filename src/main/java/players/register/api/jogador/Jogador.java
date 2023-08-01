@@ -1,5 +1,6 @@
 package players.register.api.jogador;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,7 +31,7 @@ public class Jogador {
 	@Enumerated(EnumType.STRING)
 	private Posicao posicao;
 	private Double altura;
-	private Double valorDeMercado;
+	private String mercado;
 	
 	public Jogador(DadosCadastroJogador dados) {
 		this.nome = dados.nome();
@@ -39,7 +40,7 @@ public class Jogador {
 		this.nacionalidade = dados.nacionalidade();
 		this.posicao = dados.posicao();
 		this.altura = dados.altura();
-		this.valorDeMercado = dados.valorDeMercado();
+		this.mercado = dados.mercado();
 	}
 	
 }
