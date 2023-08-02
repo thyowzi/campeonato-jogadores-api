@@ -25,6 +25,7 @@ public class Jogador {
 	private Long id;
 	private String nome;
 	private String clube;
+	private String idade;
 	private String camisa;
 	private String nacionalidade;
 	
@@ -36,6 +37,7 @@ public class Jogador {
 	public Jogador(DadosCadastroJogador dados) {
 		this.nome = dados.nome();
 		this.clube = dados.clube();
+		this.idade = dados.idade();
 		this.camisa = dados.camisa();
 		this.nacionalidade = dados.nacionalidade();
 		this.posicao = dados.posicao();

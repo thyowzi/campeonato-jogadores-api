@@ -10,7 +10,11 @@ public record DadosCadastroJogador(
 		String nome, 
 		
 		@NotBlank
-		String clube, 
+		String clube,
+		
+		@NotBlank
+		@Pattern(regexp = "\\d{2,3}")
+		String idade,
 		
 		@NotBlank
 		@Pattern(regexp = "\\d{2,3}")

@@ -1,0 +1,1 @@
+alter table jogadores add idade varchar(3) not null;
