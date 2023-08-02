@@ -1,10 +1,11 @@
 package players.register.api.controller;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +33,8 @@ public class JogadorController {
 	}
 	
 	@GetMapping
-	public List<DadosListagemJogador> listar() {
-		return jogadorRepository.findAll().stream().map(DadosListagemJogador::new).toList();
+	public Page<DadosListagemJogador> listar(Pageable paginacao) {
+		return jogadorRepository.findAll(paginacao).map(DadosListagemJogador::new);
 	}
 	
 }
