@@ -36,7 +36,7 @@ public class JogadorController {
 	
 	@GetMapping
 	public Page<DadosListagemJogador> listar(Pageable paginacao) {
-		return jogadorRepository.findAll(paginacao).map(DadosListagemJogador::new);
+		return jogadorRepository.findAllByAtivoTrue(paginacao).map(DadosListagemJogador::new);
 	}
 	
 	@PutMapping
@@ -49,7 +49,8 @@ public class JogadorController {
 	@DeleteMapping("/{id}")
 	@Transactional
 	public void excluir (@PathVariable Long id) {
-		 jogadorRepository.deleteById(id);
+		var jogador = jogadorRepository.getReferenceById(id);
+		jogador.excluir();
 	}
 	
 }

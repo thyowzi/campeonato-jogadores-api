@@ -34,7 +34,10 @@ public class Jogador {
 	private Double altura;
 	private String mercado;
 	
+	private Boolean ativo;
+	
 	public Jogador(DadosCadastroJogador dados) {
+		this.ativo = true;
 		this.nome = dados.nome();
 		this.clube = dados.clube();
 		this.idade = dados.idade();
@@ -61,6 +64,10 @@ public class Jogador {
 		if (dados.mercado() != null) {
 			this.mercado = dados.mercado();
 		}
+	}
+
+	public void excluir() {
+		this.ativo = false;
 	}
 	
 }
