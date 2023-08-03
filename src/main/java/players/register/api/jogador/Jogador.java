@@ -44,6 +44,24 @@ public class Jogador {
 		this.altura = dados.altura();
 		this.mercado = dados.mercado();
 	}
+
+	public void atualizarInformacoes(DadosAtualizacaoJogador dados) {
+		if (dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		if (dados.clube() != null) {
+			this.clube = dados.clube();
+		}
+		if (dados.camisa() != null) {
+			this.camisa = dados.camisa();
+		}
+		if (dados.idade() != null) {
+			this.idade = dados.idade();
+		}
+		if (dados.mercado() != null) {
+			this.mercado = dados.mercado();
+		}
+	}
 	
 }
 

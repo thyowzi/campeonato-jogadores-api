@@ -1,8 +1,8 @@
 package players.register.api.jogador;
 
-public record DadosListagemJogador(String nome, String clube, String idade, Posicao posicao) {
+public record DadosListagemJogador(Long id, String nome, String clube, String idade, Posicao posicao) {
 
 	public DadosListagemJogador(Jogador jogador) {
-		this(jogador.getNome(), jogador.getClube(), jogador.getIdade(), jogador.getPosicao());
+		this(jogador.getId(), jogador.getNome(), jogador.getClube(), jogador.getIdade(), jogador.getPosicao());
 	}
 }

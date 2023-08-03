@@ -1,7 +1,5 @@
 package players.register.api.controller;
 
-import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,11 +7,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import players.register.api.jogador.DadosAtualizacaoJogador;
 import players.register.api.jogador.DadosCadastroJogador;
 import players.register.api.jogador.DadosListagemJogador;
 import players.register.api.jogador.Jogador;
@@ -35,6 +35,13 @@ public class JogadorController {
 	@GetMapping
 	public Page<DadosListagemJogador> listar(Pageable paginacao) {
 		return jogadorRepository.findAll(paginacao).map(DadosListagemJogador::new);
+	}
+	
+	@PutMapping
+	@Transactional
+	public void atualizar(@RequestBody @Valid DadosAtualizacaoJogador dados) {
+		 var jogador = jogadorRepository.getReferenceById(dados.id());
+		 jogador.atualizarInformacoes(dados);
 	}
 	
 }
