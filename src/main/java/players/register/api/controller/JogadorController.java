@@ -65,7 +65,13 @@ public class JogadorController {
 		jogador.excluir();
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity detalhar (@PathVariable Long id) {
+		var jogador = jogadorRepository.getReferenceById(id);
 		
+		return ResponseEntity.ok(new DadosDetalhamentoJogador(jogador));
 	}
 	
 }
