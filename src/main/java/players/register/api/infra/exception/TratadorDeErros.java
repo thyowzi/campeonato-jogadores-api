@@ -1,4 +1,4 @@
-package players.register.api.infra;
+package players.register.api.infra.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
