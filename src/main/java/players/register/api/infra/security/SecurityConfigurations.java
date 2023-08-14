@@ -21,8 +21,9 @@ public class SecurityConfigurations {
 	    return http.csrf().disable()
 	            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	            .and().authorizeHttpRequests()
-	            .requestMatchers("/**").permitAll()  
-	            .and().build();
+	            .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .anyRequest().authenticated()
+                .and().build();
 	}
 	
 	@Bean
